@@ -3,8 +3,22 @@
 import pandas as pd
 from numpy import argsort, asarray, empty, NAN
 
+#Abrir o arquivo com a lista, e organizando a lista de nodes
+def file_data():
+	
+	with open('data/edges.dat') as f:
+		lines = f.readlines()
+
+	pairsOfNodes = [i.split() for i in lines]
+
+	for i in range(len(pairsOfNodes)):
+		pairsOfNodes[i][0] = int(pairsOfNodes[i][0])
+		pairsOfNodes[i][1] = int(pairsOfNodes[i][1])
+
+	return pairsOfNodes
+
 #Vendo qual a distancia entre cada um dos nodes
-def closeness_centrality(pairs, root):
+def closeness_centrality(pairsOfNodes, root):
 	
 	visited = [False] * 100
 	visited[root] = True
@@ -25,7 +39,7 @@ def closeness_centrality(pairs, root):
 			
 			if distance[node] == current_distance:
 				
-				for pair in pairs:
+				for pair in pairsOfNodes:
 					
 					if pair[0] == node and not visited[pair[1]]:
 						visited[pair[1]] = True
@@ -39,20 +53,6 @@ def closeness_centrality(pairs, root):
 	
 	return float(99) / sum(distance)
 
-#Abrir o arquivo com a lista, e organizando a lista de nodes
-def file_data():
-	
-	with open('data/edges.dat') as f:
-		lines = f.readlines()
-
-	pairs = [i.split() for i in lines]
-
-	for i in range(len(pairs)):
-		pairs[i][0] = int(pairs[i][0])
-		pairs[i][1] = int(pairs[i][1])
-
-	return pairs
-
 #Moldando a forma como deve sair os dados, forma visual
 def print_results(closeness):
 
@@ -62,19 +62,19 @@ def print_results(closeness):
 
 	data_array = asarray([position, distance_closeness])
 
-	df = pd.DataFrame(data=data_array.T, columns = ['Node','Closeness'])
+	dframe = pd.DataFrame(data=data_array.T, columns = ['Node','Closeness'])
 
-	df['Node'] = df['Node'].map(lambda x: int(x))
-	df.index.name = 'Posição'
+	dframe['Node'] = dframe['Node'].map(lambda x: int(x))
+	dframe.index.name = 'Posição'
 	pd.set_option('display.max_rows', 100)
 
-	print(df)
+	print(dframe)
 
 #Chamando as funçoões
 if __name__ == "__main__":
 
-	Nodes = file_data()
+	vertices = file_data()
 	
-	closeness = asarray([closeness_centrality(Nodes, i) for i in range(100)])
+	closeness = asarray([closeness_centrality(vertices, i) for i in range(100)])
 
 	print_results(closeness)
