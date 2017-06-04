@@ -21,7 +21,7 @@ Cada linha do arquivo consiste em dois nomes de vértice separados por um único
 ## Instalação (Python 2.7 ou Python 3.6) ##
 ```
 Para MAC e Windowns:
-[Python](https://www.python.org/downloads/)
+https://www.python.org/downloads/
 
 No Linux(Ubuntu) o Python 2.7 já veem instalado, mas pode ser atualizado para o 3.6!
 
