@@ -73,4 +73,4 @@ python3 main.py (Python 3.6)
 
 Não foi utilizado nenhum paco de processamento de grafos, como o networkx, apenas os pacotes numpy e pandas.
 
-Foi utilizado o algoritmo BFS ou [Bread-First Search](https://www.khanacademy.org/computing/computer-science/algorithms/breadth-first-search/a/the-breadth-first-search-algorithm), conhecido como Busca em Largura em portugues, [Um algoritmo de busca em grafos utilizado para realizar uma busca ou travessia num grafo e estrutura de dados do tipo árvore. Intuitivamente, você começa pelo vértice raiz e explora todos os vértices vizinhoz.](https://pt.wikipedia.org/wiki/Busca_em_largura).
+Foi utilizado o algoritmo BFS ou [Bread-First Search](https://www.khanacademy.org/computing/computer-science/algorithms/breadth-first-search/a/the-breadth-first-search-algorithm), conhecido como Busca em Largura em portugues, [Um algoritmo de busca em grafos utilizado para realizar uma busca ou travessia num grafo e estrutura de dados do tipo árvore. Intuitivamente, você começa pelo vértice raiz e explora todos os vértices vizinhoz.](https://pt.wikipedia.org/wiki/Busca_em_largura)
